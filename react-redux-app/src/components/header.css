@@ -1,0 +1,20 @@
+.header {
+  background: linear-gradient(90deg, #4e73df, #1cc88a);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.theme-btn {
+  background: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}

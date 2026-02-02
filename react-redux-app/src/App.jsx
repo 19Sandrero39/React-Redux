@@ -1,48 +1,31 @@
-import React, {useState} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
-import {addTodo, removeTodo} from './features/todoSlice'
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import Header from './components/Header'
+import Navbar from './components/Navbar'
+import Home from './pages/Home'
+import Tasks from './pages/Tasks'
+import About from './pages/About'
 
 function App() {
-  const todos = useSelector(state => state.todos)
-  const dispatch = useDispatch()
-  const [newTask, setNewTask] = useState('')
-
-  const handleAdd = () => {
-    if (newTask.trim() === '') return
-    dispatch(addTodo(newTask))
-    setNewTask('')
-  }
-
-  const handleRemove = (index) => {
-    dispatch(removeTodo(index))
-  }
-
   return (
-    <div style = {{padding: 20, maxWidth: 400}}>
-      <h1 >ToDo List</h1 >
+    <Router >
+      <Header />
+      <Navbar />
 
-      <input
-        type = "text"
-        value = {newTask}
-        onChange = {e => setNewTask(e.target.value)}
-        placeholder = "Новая задача"
-      />
-      <button onClick = {handleAdd}>Добавить</button >
-
-      <ul >
-        {todos.map((task, index) => (
-          <li key = {index}>
-            {task}
-            <button
-              onClick = {() => handleRemove(index)}
-              style = {{marginLeft: 10}}
-            >
-              ❌
-            </button >
-          </li >
-        ))}
-      </ul >
-    </div >
+      <Routes >
+        <Route
+          path = "/"
+          element = {<Home />}
+        />
+        <Route
+          path = "/tasks"
+          element = {<Tasks />}
+        />
+        <Route
+          path = "/about"
+          element = {<About />}
+        />
+      </Routes >
+    </Router >
   )
 }
 
