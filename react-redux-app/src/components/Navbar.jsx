@@ -3,11 +3,11 @@ import './navbar.css'
 
 function Navbar() {
   return (
-    <nav className = "navbar">
-      <Link to = "/">🏠 Главная</Link >
-      <Link to = "/tasks">📋 Мои задачи</Link >
-      <Link to = "/about">ℹ О проекте</Link >
-    </nav >
+    <nav className="navbar">
+      <Link to="/">🪖 Техника</Link>
+      <Link to="/tasks">📚 Энциклопедия</Link>
+      <Link to="/about">🌍 О проекте</Link>
+    </nav>
   )
 }
 

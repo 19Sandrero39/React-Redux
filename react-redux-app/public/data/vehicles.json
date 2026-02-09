@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "T-90M Proryv",
+    "country": "Russia",
+    "type": "Main Battle Tank",
+    "year": 2020,
+    "image": "https://i.ytimg.com/vi/HN1n6xHhQf0/maxresdefault.jpg",
+    "description": "Современный российский основной боевой танк с улучшенной защитой и электроникой."
+  },
+  {
+    "id": 2,
+    "name": "M1A2 Abrams",
+    "country": "USA",
+    "type": "Main Battle Tank",
+    "year": 2019,
+    "image": "https://i.ytimg.com/vi/gC0V8jILo3Y/maxresdefault.jpg",
+    "description": "Один из самых технологичных танков в мире с мощной бронёй и электроникой."
+  },
+  {
+    "id": 3,
+    "name": "Leopard 2A7",
+    "country": "Germany",
+    "type": "Main Battle Tank",
+    "year": 2021,
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Tank_Leopard_2A7_NATO_Days_2022_%28cropped%29.jpg/960px-Tank_Leopard_2A7_NATO_Days_2022_%28cropped%29.jpg",
+    "description": "Немецкий танк нового поколения с высокой мобильностью и защитой."
+  }
+]

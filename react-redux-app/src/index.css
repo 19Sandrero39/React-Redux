@@ -1,29 +1,30 @@
+/* Сброс базовых отступов */
 * {
-  box-sizing: border-box;
-}
-
-body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f6f9;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Плавные переходы темы */
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 🌞 Светлая тема (по умолчанию) */
+body:not(.dark) {
+  background-color: #f4f7fa;
+  color: #1a202c;
+}
+
+/* 🌙 Тёмная тема */
 body.dark {
-  background-color: #1e1e2f;
-  color: #eee;
+  background-color: #0f172a;
+  color: #e2e8f0;
 }
 
-body.dark .navbar {
-  background-color: #111827;
-}
-
-body.dark .task-card {
-  background-color: #2c2f4a;
-  color: white;
-}
-
-body.dark input {
-  background-color: #333;
-  color: white;
-  border: 1px solid #555;
+/* Ссылки */
+a {
+  text-decoration: none;
+  color: inherit;
 }
