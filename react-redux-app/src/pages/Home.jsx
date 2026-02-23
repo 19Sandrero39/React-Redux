@@ -2,12 +2,19 @@ import {useEffect, useState} from "react"
 import {fetchWithDelay} from "../api/fakeApi"
 import "./home.css"
 
+const emptyNewsForm = {
+  title: "",
+  text: ""
+}
+
 function Home() {
   const [vehicles, setVehicles] = useState([])
   const [selected, setSelected] = useState(null)
   const [news, setNews] = useState([])
   const [facts, setFacts] = useState([])
   const [loading, setLoading] = useState(true)
+  const [newsForm, setNewsForm] = useState(emptyNewsForm)
+  const [editingNewsId, setEditingNewsId] = useState(null)
 
   useEffect(() => {
     const loadData = async () => {
@@ -25,6 +32,61 @@ function Home() {
     loadData()
   }, [])
 
+  const handleNewsInputChange = (event) => {
+    const {name, value} = event.target
+    setNewsForm(prev => ({...prev, [name]: value}))
+  }
+
+  const resetNewsForm = () => {
+    setNewsForm(emptyNewsForm)
+    setEditingNewsId(null)
+  }
+
+  const handleNewsSubmit = (event) => {
+    event.preventDefault()
+
+    if (!newsForm.title.trim() || !newsForm.text.trim()) return
+
+    if (editingNewsId !== null) {
+      setNews(prev => prev.map(item => (
+        item.id === editingNewsId
+          ? {
+            ...item,
+            title: newsForm.title.trim(),
+            text: newsForm.text.trim()
+          }
+          : item
+      )))
+      resetNewsForm()
+      return
+    }
+
+    const newNewsItem = {
+      id: Date.now(),
+      title: newsForm.title.trim(),
+      text: newsForm.text.trim()
+    }
+
+    setNews(prev => [newNewsItem, ...prev])
+    resetNewsForm()
+  }
+
+  const startEditNews = (item) => {
+    setEditingNewsId(item.id)
+    setNewsForm({
+      title: item.title,
+      text: item.text
+    })
+  }
+
+  const deleteNews = (id) => {
+    setNews(prev => prev.filter(item => item.id !== id))
+
+    if (editingNewsId === id) {
+      resetNewsForm()
+    }
+  }
+
   if (loading) return <h2 className="loading">Загрузка данных...</h2>
 
   return (
@@ -36,9 +98,7 @@ function Home() {
         <div className="vehicle-list">
           {vehicles.map(v => (
             <div
-              key={v.id}
-              className="vehicle-item"
-              onClick={() => setSelected(v)}
+              key={v.id} className="vehicle-item" onClick={() => setSelected(v)}
             >
               {v.name}
             </div>
@@ -50,8 +110,7 @@ function Home() {
       <section className="vehicle-detail">
           <h2>{selected.name}</h2>
           <img
-            src={selected.image}
-            alt={selected.name}
+            src={selected.image} alt={selected.name}
           />
           <p><b>Страна:</b> {selected.country}</p>
           <p><b>Тип:</b> {selected.type}</p>
@@ -63,13 +122,45 @@ function Home() {
       {/* NEWS */}
       <section>
         <h2>Новости</h2>
+        <form
+          className="news-form" onSubmit={handleNewsSubmit}
+        >
+          <input
+            type="text" name="title" placeholder="Заголовок" value={newsForm.title} onChange={handleNewsInputChange}
+          />
+          <textarea
+            name="text" placeholder="Текст новости" rows="3" value={newsForm.text} onChange={handleNewsInputChange}
+          />
+          <div className="news-form-actions">
+            <button type="submit">{editingNewsId !== null ? "Обновить" : "Добавить"}</button>
+            {editingNewsId !== null && (
+              <button
+                type="button" onClick={resetNewsForm}
+              >
+                Отмена
+              </button>
+            )}
+          </div>
+        </form>
+
         {news.map(n => (
           <div
-            key={n.id}
-            className="news-card"
+            key={n.id} className="news-card"
           >
             <h3>{n.title}</h3>
             <p>{n.text}</p>
+                        <div className="news-actions">
+              <button
+                type="button" onClick={() => startEditNews(n)}
+              >
+                Редактировать
+              </button>
+              <button
+                type="button" onClick={() => deleteNews(n.id)}
+              >
+                Удалить
+              </button>
+            </div>
           </div>
         ))}
       </section>

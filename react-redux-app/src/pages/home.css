@@ -103,3 +103,45 @@ body.dark .news-card {
 .news-card:hover {
   transform: translateY(-2px);
 }
+
+.news-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.news-form input,
+.news-form textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  font: inherit;
+}
+
+.news-form-actions,
+.news-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.news-form button,
+.news-actions button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+body:not(.dark) .news-form button,
+body:not(.dark) .news-actions button {
+  background: #cbd5e1;
+  color: #1a202c;
+}
+
+body.dark .news-form button,
+body.dark .news-actions button {
+  background: #334155;
+  color: #e2e8f0;
+}

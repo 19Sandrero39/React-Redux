@@ -1,6 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit'
 
-// Получаем задачи из LocalStorage, если есть
 const savedTodos = JSON.parse(localStorage.getItem('todos')) || []
 
 const todoSlice = createSlice({

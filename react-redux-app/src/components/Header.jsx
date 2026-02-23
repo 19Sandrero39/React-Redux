@@ -13,8 +13,7 @@ function Header() {
       <div className="header-top">
         <h1 className="logo">WarTech Info 🛰️</h1>
         <button
-          onClick={() => setDark(!dark)}
-          className="theme-btn"
+          onClick={() => setDark(!dark)} className="theme-btn"
         >
           {dark ? '☀ Светлая тема' : '🌙 Тёмная тема'}
         </button>
