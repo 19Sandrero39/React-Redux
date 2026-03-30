@@ -1,20 +1,20 @@
 .navbar {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  padding: 14px;
-  background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 14px;
+    background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
 }
 
 .navbar a {
-  color: #e2e8f0;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 16px;
-  transition: 0.2s;
+    color: #e2e8f0;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: 0.2s;
 }
 
 .navbar a:hover {
-  color: #38bdf8;
-  transform: scale(1.1);
+    color: #38bdf8;
+    transform: scale(1.1);
 }

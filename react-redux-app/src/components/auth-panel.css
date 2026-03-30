@@ -1,0 +1,39 @@
+.auth-panel {
+    border: 1px solid #e8e8e8;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 24px;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.auth-forms {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.auth-form input {
+    padding: 8px;
+}
+
+.auth-form button {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.auth-error {
+    margin-top: 12px;
+    color: #ff8484;
+    font-weight: 600;
+}
+
+.auth-success {
+    margin: 10px 0;
+    font-size: 17px;
+}
