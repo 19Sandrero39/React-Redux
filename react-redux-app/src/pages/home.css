@@ -145,3 +145,63 @@ body.dark .news-actions button {
     background: #334155;
     color: #e2e8f0;
 }
+.vehicle-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 14px 0;
+}
+
+.rating-section {
+    margin-top: 16px;
+}
+
+.rating-form {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.rating-form input {
+    width: 80px;
+    padding: 8px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+}
+
+.rating-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-left: 18px;
+}
+
+.rating-list li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.vehicle-actions button,
+.rating-form button,
+.rating-list button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+body:not(.dark) .vehicle-actions button,
+body:not(.dark) .rating-form button,
+body:not(.dark) .rating-list button {
+    background: #cbd5e1;
+    color: #1a202c;
+}
+
+body.dark .vehicle-actions button,
+body.dark .rating-form button,
+body.dark .rating-list button {
+    background: #334155;
+    color: #e2e8f0;
+}
